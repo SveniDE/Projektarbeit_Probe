@@ -1,0 +1,26 @@
+Lastenheft
+
+Tonnengrößen werden nach Liter bestimmt
+keine Kleinst Tonnen und keine Container
+80 Liter
+120 Liter
+240 Liter
+
+reinigungsintervalle
+einmalig
+wöchtentlich
+monatlich
+alle 2 Monate
+2 mal im jahr
+1 mal im jahr
+
+Auftraggeber 
+Vorname Nachname strasse Hausnummer plz ort email Telefon
+Freitext
+
+systemgrenzen
+responsive WebOberfläsche für Endkunden 
+geschützter Login Bereich für Innendienst
+automatischer mailversand
+datenhaltung in relationaler Datenbank
+

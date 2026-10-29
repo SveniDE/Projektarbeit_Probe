@@ -1,0 +1,118 @@
+IHK-Projektdokumentation: Inhaltsverzeichnis 
+& Struktur
+Projektbezeichnung: Konzeption und Implementierung eines webbasierten Buchungssystems 
+und einer Auftragsverwaltung für einen mobilen Mülltonnenreinigungsservice
+Ausbildungsberuf: Fachinformatiker / Fachinformatikerin für Anwendungsentwicklung (FIAE)
+Umfang des Hauptteils: ca. 15–20 Textseiten (ohne Deckblatt, Verzeichnisse und Anhang – 
+IHK-Vorgabe beachten)
+Vorverzeichnisse (Römische Seitennummerierung: I, II, III...)
+*	Deckblatt (Thema, Name, Prüflingsnummer, Ausbildungsbetrieb, IHK, Abgabedatum)
+*	Inhaltsverzeichnis
+*	Abbildungsverzeichnis
+*	Tabellenverzeichnis
+*	Abkürzungsverzeichnis
+1. Einleitung und Projektumfeld (ca. 1–2 Seiten)
+*	1.1 Das Unternehmen / Auftraggeber
+o	Vorstellung des Reinigungsdienstleisters XY, Tätigkeitsfeld, Geschäftsmodell
+*	1.2 Ausgangssituation und Problemstellung (Ist-Zustand)
+o	Bisherige manuelle Erfassung per Telefon/Mail, Excel-Pflege, Zettelwirtschaft, 
+Schnittstellenbrüche
+*	1.3 Zielsetzung und Projektgrenzen (Soll-Konzept)
+o	Funktionaler Kern (MVP): Online-Buchungsmaske, Admin-Dashboard, E-Mail-
+Service
+o	Explizite Projektabgrenzung (Nicht-Ziele: keine Live-API kommunaler Entsorger, 
+keine GPS-Routenberechnung, kein Fakturierungssystem)
+*	1.4 Geplante Eigenleistung und Vorgehensmodell
+o	Eigene Rolle als Softwareentwickler; Wahl des Vorgehensmodells (z. B. 
+Wasserfallmodell mit Phasenprüfungen oder agil angelehntes Modell)
+2. Analysephase (ca. 3 Seiten)
+*	2.1 Analyse der bestehenden Geschäftsprozesse
+o	Modellierung des Ist-Prozesses (z. B. BPMN- oder EPK-Diagramm: Kunde ruft an 
+$\rightarrow$ Eintrag in Excel)
+o	Schwachstellenanalyse (Medienbrüche, Übertragungsfehler, Zeitverluste)
+*	2.2 Anforderungsanalyse (Lastenheft)
+o	Funktionale Anforderungen (Erfassung Adressdaten, Auswahl 
+Intervall/Tonnengröße, Filterung im Dashboard, E-Mail-Trigger)
+o	Nicht-funktionale Anforderungen (Datenschutz nach DSGVO, Usability, 
+Performance, Responsivität)
+o	Anwendungsfalldiagramm (UML Use Case Diagramm: Kunde vs. Disponent)
+*	2.3 Wirtschaftlichkeitsanalyse (Make-or-Buy)
+o	Gegenüberstellung: Eigenentwicklung vs. Standard-SaaS-Buchungssoftware
+o	Kalkulation der Projektkosten (eigener Stundensatz, Gemeinkosten)
+o	Kosten-Nutzen-Analyse und Amortisationsrechnung (ROI)
+3. Entwurfsphase (ca. 4–5 Seiten)
+*	3.1 Technische Evaluierung und Werkzeugauswahl (Nutzwertanalyse)
+o	Kriterienkatalog (Hosting-Kompatibilität, Lizenzkosten, Wartbarkeit, 
+Entwicklungsaufwand)
+o	Gegenüberstellung von Technologien (z. B. PHP/Laravel vs. Node.js vs. Java; 
+MySQL/MariaDB vs. PostgreSQL)
+o	Begründete Entscheidung basierend auf dem externen Shared-Hosting-Tarif
+*	3.2 Datenmodellierung und Normalisierung
+o	Logisches Datenmodell (ER-Modell)
+o	Relationales Schema bis zur 3. Normalform (Tabellen: Kunden, Auftraege, 
+Behaeltertypen, Reinigungsintervalle, Tourenlisten)
+*	3.3 Software-Architektur und Schnittstellen
+o	Schichtenarchitektur (z. B. MVC – Model-View-Controller)
+o	UML-Klassendiagramm der Kernentitäten und Services
+o	UML-Sequenzdiagramm (Ablauf: Buchung absenden $\rightarrow$ 
+serverseitige Validierung $\rightarrow$ DB-Insert $\rightarrow$ SMTP-
+Mailversand)
+*	3.4 UI/UX-Konzeption
+o	Wireframes / Mockups der Buchungsstrecke (Mobile & Desktop)
+o	Entwurf des Disponenten-Dashboards (Auftragsliste, Statusfilter, Exportansicht)
+o	Design und Textstruktur der automatisierten Transaktions-E-Mails
+4. Realisierungsphase (ca. 4–5 Seiten)
+*	4.1 Bereitstellung der Entwicklungsumgebung und DB-Schema
+o	Versionsverwaltung (Git-Branching-Modell), Migrationsskripte für die 
+Tabellenanlage
+*	4.2 Implementierung der Datenzugriffsschicht (Models / ORM)
+o	Umsetzung der Entitäten und Relationen im Code
+*	4.3 Implementierung der Kernlogik (Buchung & Validierung)
+o	Serverseitige Plausibilitätsprüfungen (PLZ-Prüfung, Datumsvalidierung, 
+Pflichtfelder)
+o	Schutzmechanismen gegen Falscheingaben und SQL-Injection / XSS
+*	4.4 Entwicklung der Administrations- und Dispositionsansicht
+o	Autorisierung/Zugriffsschutz für Mitarbeiter
+o	Filterlogik (nach Datum, Status, PLZ-Bezirk) und Ausgabe der Fahrer-Tagesliste
+*	4.5 Anbindung des Benachrichtigungsservices
+o	Konfiguration des SMTP-Dienstes und Generierung dynamischer Bestätigungs-
+Mails
+5. Qualitätssicherung und Testphase (ca. 2–3 Seiten)
+*	5.1 Teststrategie und Testkonzept
+o	Definition der Testarten (Unit-Tests für Validierungslogik, manuelle 
+Integrationstests für den gesamten Buchungsworkflow)
+*	5.2 Definition und Durchführung der Testfälle
+o	Tabellarische Übersicht ausgewählter Testfälle (Gültige Eingaben, Feiertage, 
+ungültige Mailadressen, fehlende Pflichtfelder)
+*	5.3 Testprotokoll und Fehlerbehebung
+o	Dokumentation gefundener Bugs während des Tests und deren Korrektur
+6. Einführung, Abnahme und Wirtschaftlicher Soll-/Ist-
+Vergleich (ca. 2 Seiten)
+*	6.1 Bereitstellung und Deployment
+o	Übertragung auf die Staging-/Hosting-Umgebung, Bereitstellung der Datenbank
+*	6.2 Abnahme durch den Auftraggeber
+o	Präsentation der Lösung vor der Geschäftsführung und Einholung des 
+Abnahmeprotokolls
+*	6.3 Zeitlicher und wirtschaftlicher Soll-/Ist-Vergleich
+o	Abgleich der 80 geplanten Stunden mit den tatsächlichen Stunden je Phase 
+(inkl. Analyse von Abweichungen)
+o	Prüfung der Zielerreichung (z. B. Einsparung von 60 % Bearbeitungszeit 
+erreicht?)
+*	6.4 Fazit und Ausblick (Lessons Learned)
+o	Persönliche Reflexion des Entwicklungsprozesses
+o	Ausblick auf geplante Folgeversionen (Phase 2: Entsorger-APIs, Maps-
+Routenoptimierung)
+Anhang (Verzeichnisse mit Buchstabennummerierung: A, B, 
+C...)
+*	Anhang A: Genehmigter IHK-Projektantrag
+*	Anhang B: Vollständiges Lastenheft und Pflichtenheft
+*	Anhang C: Detaillierte Nutzwertanalyse (Tabellen und Bewertungsmatrix)
+*	Anhang D: Vollständiges Entity-Relationship-Diagramm (ERD) & DB-Schema
+*	Anhang E: Ausführliche UML-Diagramme (Klassendiagramm, Sequenzdiagramm, 
+Aktivitätsdiagramm)
+*	Anhang F: Vollständiges Testprotokoll aller Testfälle
+*	Anhang G: Kurzanleitung / Anwenderhandbuch für den Innendienst
+*	Anhang H: Formelles Abnahmeprotokoll mit Unterschrift des Auftraggebers
+*	Anhang I: Auszug aus dem Git-Commit-Log / Zeiterfassungsnachweis
+*	Selbstständigkeitserklärung (Zwingend unterschrieben am Ende)
+

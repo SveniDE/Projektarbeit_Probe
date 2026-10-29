@@ -1,0 +1,75 @@
+Datenbank
+
+
+Kunde
+kunde id
+Vorname
+NAchname
+Strasse
+Hausnummer
+plz
+ort
+email
+Telefon/mobil
+rolle = Nutzer
+
+
+admin
+admin id
+Name
+Vorname
+email
+tel
+Passwort
+rolle = admin
+
+verwaltungsnutzer
+Verwaltung id
+Name
+Vorname
+email
+tel
+Passwort
+rolle = Verwaltung
+
+faher
+Fahrer id
+Name
+Vorname
+tel
+
+Fahrzeug
+Fahrzeug id
+art
+zustand
+Nummernschild
+
+
+tonnen
+größe 
+größe id
+- 80
+- 120
+-180 
+
+art
+artid
+- Bio
+- Restmüll
+- gelb
+- papier
+
+zahlung
+zahlung id
+PayPal
+Rechnung
+Überweisung
+Lastschrift
+
+
+Status
+offen 
+erledigt
+in Bearbeitung
+storniert
+bezahlt

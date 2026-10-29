@@ -1,0 +1,25 @@
+Notizen für Dokumentation
+29102026 Beginn des Projektes
+Einrichten einer Arbeitsumgebung
+Versionskontrolle über GitHub.
+Ordnerstruktur - 
+	- doku
+	- programming
+	- workversion_1
+
+Ablaufdiagramm
+Datenbank Vorentwurf
+make or buy Tabelle
+Nutzewertanalyse - bewertungstabelle für software
+
+
+
+
+
+
+
+
+muss noch gemacht werden
+Bestandsaufnahme - was hat der kunde
+
+	
