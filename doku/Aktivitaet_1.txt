@@ -1,0 +1,45 @@
+
+Anfang
+Kunde 	besucht die Webseite - Hauptseite
+---
+Kunde  wechselt zur Buchungsseite
+Kunde  öffnet Webseite -> Buchungsformular
+	Eingabe -> PLZ/Ort
+System prüft ob die PLZ im Einsatzgebiet liegt.
+	Nein -> Fehlermeldung anzeigen --Ihr Gebiet wird nicht bedient--
+	ja ->	weiter zum nächsten schritt
+System 	laden von Preisen und Terminen
+	erzeugt eine Seite, 
+	der Kunde kann hier die nötigen Einstellungen vornehmen.
+	wie z.B.: Tonnengröße, Tonnenart, Reinigungszyklus, gewünschter Termin
+Kunde	wählt die Tonnendetails und Optionen
+	nachdem die alles gewählt ist, klickt Kunde auf "weiter"
+	neue Seite für Kontaktdaten
+Kunde 	gibt Kontaktdaten ein
+	Bestätigung der DSGVO
+	--> klicken -- verbindliches Buchen--
+System	Prüfung
+	- Eingaben vollständig? Pflichtfelder wie - Adresse
+	- Schreibweise korrekt - Email
+	nein -> Markierung fehlerhafter Formulare -> Schritt zurück zur Eingabe
+	ja -> daten werden gespeichert
+---intern
+System	generiert einen Auftrag
+		eindeutige Buchungsnummer bzw. Auftragsnummer
+System 	schreibt Kunden und Auftragsdaten in die Datenbank
+	STATUS > "offen"
+System	Schreibt Email Bestätigung und Nachtlicht an Verwaltung
+---intern
+System	Weiterleitung auf Erfolgsseite --"Danke für die Buchung"
+Kunde	Tätigkeit beendet
+--- Buchung wurde abgeschlossen, Interaktion System - Kunde ist beendet
+System	stellt daten für die Verwaltung bereit - Nachricht an Verwaltung
+Verwaltung öffnet das Dashboard und der neue Auftrag erscheint
+Verwaltung Bestätigung des Termines
+	nein -> verschieben oder stornieren, Status Änderung = Nachricht an den Kunden
+	ja -> Status auf genehmigt
+System	speichert Änderungen und gibt dem Fahrer die Information aus
+
+ENDE
+	
+
